@@ -32,12 +32,7 @@ loop do
   # I/O objects. (In fact, TCPSocket is a subclass of IO.)
   socket = server.accept
 
-  # Read the first line of the request (the Request-Line)
-  request = socket.gets
-
-  # Log the request to the console for debugging
-  STDERR.puts request
-
+  #prints request
   while line = socket.gets
     puts line
   end
@@ -55,10 +50,10 @@ loop do
 
   # Print a blank line to separate the header from the response body,
   # as required by the protocol.
-  socket.print "\r\n"
+  #socket.print "\r\n"
 
   # Print the actual response body, which is just "Hello World!\n"
-  socket.print response
+  # ocket.print response
 
   # Close the socket, terminating the connection
   socket.close
