@@ -9,7 +9,7 @@ response = %{(HTTP/1.1 200 OK
 Server: gSOAP/2.7
 Content-Type: text/xml; charset=utf-8; action="”
 Content-Length: lengthInBytes
-Connection: keep-alive
+Connection: close
 
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
@@ -33,9 +33,16 @@ loop do
   socket = server.accept
 
   #prints request
+
+  puts
+  puts "-----------------------------------------------"
+  puts "-----------------------------------------------"
   while line = socket.gets
     puts line
   end
+  puts "-----------------------------------------------"
+  puts "-----------------------------------------------"
+  puts
 
   # We need to include the Content-Type and Content-Length headers
   # to let the client know the size and type of data
@@ -53,8 +60,9 @@ loop do
   #socket.print "\r\n"
 
   # Print the actual response body, which is just "Hello World!\n"
-  # ocket.print response
+  #socket.print response
 
   # Close the socket, terminating the connection
+  socket.print "\r\n"
   socket.close
 end
