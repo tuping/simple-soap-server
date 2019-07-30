@@ -1,10 +1,12 @@
-#To bind port 80
-#sudo socat TCP4-LISTEN:www,reuseaddr,fork TCP4:localhost:8080
+#!/usr/bin/env ruby
 
-require 'sinatra'
-require 'sinatra/soap'
+require "rubygems"
+require "bundler"
+require "bundler/setup"
+require "sinatra"
+require "sinatra/soap"
 
-set port: 8080
+set port: ARGV[1]
 
 post "/*" do
   while line = request.body.gets
