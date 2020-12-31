@@ -10,8 +10,13 @@
 ## Usage
 
 ### Required software
-* Ruby 2.6.3
+* Ruby 2.6.x
 * Rubygems
+
+*If you use rvm, you can create an alias for Ruby version:*
+```sh
+rvm alias create '~>2.6.0' ruby-2.6
+```
 
 #### Install required gems:
 ```sh
@@ -24,7 +29,6 @@ From a terminal (*eg. port 8080*):
 ```sh
 ./sinatra.rb 8080
 ```
-
 
 If you want to redirect to port 80 (*eg. port 8080 -> 80*), run command below in another shell session:
 ```sh
